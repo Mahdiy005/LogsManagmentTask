@@ -28,7 +28,7 @@ namespace LogsManagment.Core.Features.Logs.Queries.Handlers
 
         public async Task<Response<GetLogByIdDto>> Handle(GetSingleQueryModel request, CancellationToken cancellationToken)
         {
-            // 1️⃣ Get current user
+            // 1️ Get current user
             var userId = _httpContextAccessor.HttpContext.User.FindFirstValue("uid");
             if (userId == null)
                 return Unauthorized<GetLogByIdDto>();
@@ -36,7 +36,7 @@ namespace LogsManagment.Core.Features.Logs.Queries.Handlers
             var user = await _userManager.FindByIdAsync(userId);
             var roles = await _userManager.GetRolesAsync(user);
 
-            // 2️⃣ Fetch log by Id
+            // 2️ Fetch log by Id
             var log = await _context.Logs
                 .Include(l => l.UsersAssigned)
                 .ThenInclude(u => u.User.AssignedLogs)
@@ -45,7 +45,7 @@ namespace LogsManagment.Core.Features.Logs.Queries.Handlers
             if (log == null)
                 return NotFound<GetLogByIdDto>(stringLocalizer[SharedResourcesKeys.NotFound]);
 
-            // 3️⃣ Check access permission
+            // 3️ Check access permission
             if (roles.Contains("Admin") == false)
             {
                 bool assignedToUser = log.UsersAssigned.Any(u => u.UserId == int.Parse(userId));
@@ -53,7 +53,7 @@ namespace LogsManagment.Core.Features.Logs.Queries.Handlers
                     return Forbidden<GetLogByIdDto>();
             }
 
-            // 4️⃣ Map to DTO
+            // 4️ Map to DTO
             var result = new GetLogByIdDto
             {
                 Id = log.Id,

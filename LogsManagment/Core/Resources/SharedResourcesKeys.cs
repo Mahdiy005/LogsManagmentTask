@@ -8,5 +8,7 @@
         public const string DontExceed100 = "DontExceed100";
         public const string RetrivedSuccess = "RetrivedSuccess";
         public const string NotFound = "NotFound";
+        public const string TitleRequired = "TitleRequired";
+        public const string DescriptionRequired = "DescriptionRequired";
     }
 }

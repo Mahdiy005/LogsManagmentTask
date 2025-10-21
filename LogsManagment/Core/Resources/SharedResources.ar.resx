@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DescriptionRequired" xml:space="preserve">
+    <value>الوصف مطلوب</value>
+  </data>
   <data name="DontExceed100" xml:space="preserve">
     <value>هذا الحقل لا يمكن ان يزيد عن 100 حرف</value>
   </data>
@@ -128,5 +131,8 @@
   </data>
   <data name="RetrivedSuccess" xml:space="preserve">
     <value>تم الارجاع بنجاح</value>
+  </data>
+  <data name="TitleRequired" xml:space="preserve">
+    <value>العنوان مطلوب</value>
   </data>
 </root>

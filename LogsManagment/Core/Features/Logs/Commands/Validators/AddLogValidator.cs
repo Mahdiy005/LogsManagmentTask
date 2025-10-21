@@ -16,8 +16,8 @@ namespace LogsManagment.Core.Features.Logs.Commands.Validators
                 .NotEmpty().WithMessage(stringLocalizer[LogsManagment.Core.Resource.SharedResourcesKeys.RequiredField])
                 .MaximumLength(100).WithMessage(stringLocalizer[LogsManagment.Core.Resource.SharedResourcesKeys.DontExceed100]);
             RuleFor(x => x.Description)
-                .NotEmpty().WithMessage("Description is required.")
-                .MaximumLength(1000).WithMessage("Description cannot exceed 1000 characters.");
+                .NotEmpty().WithMessage(stringLocalizer[LogsManagment.Core.Resource.SharedResourcesKeys.RequiredField])
+                .MaximumLength(1000).WithMessage(stringLocalizer[LogsManagment.Core.Resource.SharedResourcesKeys.DontExceed100]);
         }
     }
 }
